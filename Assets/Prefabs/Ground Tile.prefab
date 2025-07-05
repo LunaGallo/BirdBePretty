@@ -95,6 +95,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7642447265437850800}
+  - component: {fileID: 5299405608609788632}
   m_Layer: 0
   m_Name: Ground Tile
   m_TagString: Untagged
@@ -121,6 +122,19 @@ Transform:
   - {fileID: 6857197127259045344}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5299405608609788632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1934385814426371741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 626bb9cb7071c6345806841447dd91c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridRect: {fileID: 1955650880025849610}
 --- !u!1 &1955650880025849610
 GameObject:
   m_ObjectHideFlags: 0
@@ -134,7 +148,7 @@ GameObject:
   - component: {fileID: 1504031524235448650}
   - component: {fileID: 2752336310752457430}
   m_Layer: 0
-  m_Name: Rectangle
+  m_Name: Grid Rect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6187582507038005570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.2588191, y: -0, z: -0, w: 0.9659258}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_ConstrainProportionsScale: 1
