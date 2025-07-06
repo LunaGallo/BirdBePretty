@@ -73,7 +73,7 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
 
     public float ObjectRootHeight {
         set {
-            objectRoot.localPosition = objectRoot.localPosition.WithY(value);
+            objectRoot.localPosition = Vector3.up * value;
         }
     }
 

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e3fe5dfec499a4ab3a00bfb7bafb39, type: 3}
   m_Name: Tree 2 - 2
   m_EditorClassIdentifier: 
-  displayName: "\xC1rvore"
+  displayName: Aroeira Mansa
   sprite: {fileID: 21300000, guid: 0188ae0cab180a141b41cf9d12bb3caa, type: 3}
   tag: 2
   prefab: {fileID: 5358667053555865644, guid: be95404d460e9064dbf8b19fc6788fca, type: 3}

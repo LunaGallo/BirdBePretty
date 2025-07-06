@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e3fe5dfec499a4ab3a00bfb7bafb39, type: 3}
   m_Name: Buraco
   m_EditorClassIdentifier: 
-  displayName: Buraco
+  displayName: Toca
   sprite: {fileID: 21300000, guid: 0b4ff193c72da9745b697ed50e447a21, type: 3}
   tag: 1
   prefab: {fileID: 5358667053555865644, guid: d5930a77f449d174f9b4d9f35e957953, type: 3}
