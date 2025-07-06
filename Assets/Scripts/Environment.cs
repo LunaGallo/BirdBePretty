@@ -77,7 +77,9 @@ public class Environment : MonoBehaviour {
         ElementBehaviour[] childElements = elementContainer.GetComponentsInChildren<ElementBehaviour>().Where(b => !b.IsBeingGrabbed).ToArray();
         ElementCount = Mathf.Clamp(childElements.Length,0,elementCountGoal);
         IEnumerable<ElementData> elementDatas = childElements.Select(b => b.data).WithoutDoubles();
-        HappynessCount = Mathf.Max(0,elementDatas.Where(d => likes.Any(l => l.tag == d.tag)).Select(d => likes.Find(l => l.tag == d.tag)).Sum(l => l.intensity));
+        HappynessCount = Mathf.Clamp(
+            elementDatas.Where(d => likes.Any(l => l.tag == d.tag)).Select(d => likes.Find(l => l.tag == d.tag)).Sum(l => l.intensity),
+            0, happynessCountGoal);
         UpdateUIValues();
 
         List<GroundTile> defaultTiles = new(tileContainer.GetComponentsInChildren<GroundTile>(true));

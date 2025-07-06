@@ -83,6 +83,7 @@ MonoBehaviour:
   - Dirt
   - Sand
   - Water
+  rectangleGizmo: {fileID: 0}
 --- !u!1001 &469420879441782432
 PrefabInstance:
   m_ObjectHideFlags: 0

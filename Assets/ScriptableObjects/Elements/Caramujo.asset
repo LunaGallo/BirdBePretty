@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e3fe5dfec499a4ab3a00bfb7bafb39, type: 3}
-  m_Name: Tree 2
+  m_Name: Caramujo
   m_EditorClassIdentifier: 
-  displayName: "\xC1rvore"
-  sprite: {fileID: 21300000, guid: 382611e1bd6f8984bb75a3c10cedf08b, type: 3}
-  tag: 2
-  prefab: {fileID: 5358667053555865644, guid: ea7f34c010edf544abd7cbc64e5bf455, type: 3}
+  displayName: Caramujo
+  sprite: {fileID: 21300000, guid: f670d4e9b1f196d4cbc4c7e3e802e1a1, type: 3}
+  tag: 0
+  prefab: {fileID: 5358667053555865644, guid: c82664cf4ca6b0f48bc121f2c1e17ea4, type: 3}

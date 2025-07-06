@@ -6420,15 +6420,15 @@ MonoBehaviour:
   uiCheckmark: {fileID: 90018503}
   elementCountSlider: {fileID: 2140233744}
   elementCountText: {fileID: 464087435}
-  elementCountGoal: 2
+  elementCountGoal: 5
   happynessCountSlider: {fileID: 672962423}
   happynessCountText: {fileID: 1914992804}
-  happynessCountGoal: 1
+  happynessCountGoal: 3
   likes:
   - tag: 0
     intensity: -1
   - tag: 1
-    intensity: 1
+    intensity: 2
   - tag: 2
     intensity: -1
 --- !u!4 &842541624
@@ -8720,13 +8720,13 @@ MonoBehaviour:
   uiCheckmark: {fileID: 300620974}
   elementCountSlider: {fileID: 1748661514}
   elementCountText: {fileID: 2103780063}
-  elementCountGoal: 2
+  elementCountGoal: 5
   happynessCountSlider: {fileID: 204965567}
   happynessCountText: {fileID: 688339486}
-  happynessCountGoal: 1
+  happynessCountGoal: 3
   likes:
   - tag: 0
-    intensity: 1
+    intensity: 2
   - tag: 1
     intensity: -1
   - tag: 2
@@ -10181,17 +10181,17 @@ MonoBehaviour:
   uiCheckmark: {fileID: 2077179815}
   elementCountSlider: {fileID: 1604910592}
   elementCountText: {fileID: 1004088312}
-  elementCountGoal: 2
+  elementCountGoal: 5
   happynessCountSlider: {fileID: 1012116867}
   happynessCountText: {fileID: 1258111786}
-  happynessCountGoal: 1
+  happynessCountGoal: 3
   likes:
   - tag: 0
     intensity: -1
   - tag: 1
     intensity: -1
   - tag: 2
-    intensity: 1
+    intensity: 2
 --- !u!4 &1267916017
 Transform:
   m_ObjectHideFlags: 0

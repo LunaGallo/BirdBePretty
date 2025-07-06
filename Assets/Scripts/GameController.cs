@@ -22,7 +22,11 @@ public class GameController : Singleton<GameController> {
         bool isHoveringTile = false;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         groundPlane.Raycast(ray, out float enter);
-        Vector3 hitPoint = (ray.origin + ray.direction * enter).Rounded();
+        Vector3 hitPoint = ray.origin + ray.direction * enter;
+        if (IsGrabbing) {
+            hitPoint -= GrabbedElement.PivotOffset;
+        }
+        hitPoint = hitPoint.Rounded();
         GroundTile hitTile = GroundTile.TileAt(hitPoint);
         if (!IsMouseOverUI) {
             if (hitTile != null) {

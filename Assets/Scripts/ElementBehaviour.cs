@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using LunaLib;
+using Shapes;
 
 public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
 
@@ -17,6 +18,7 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
     public float ghostAlpha = 0.5f;
     public ElementData data;
     public List<string> compatibleTerrains;
+    public Rectangle rectangleGizmo;
 
     public bool IsFlipped {
         get {
@@ -74,6 +76,9 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
             objectRoot.localPosition = objectRoot.localPosition.WithY(value);
         }
     }
+
+    public Vector3 PivotOffset => Vector3.right * (gridSize.x-1) / 2f + Vector3.forward * (gridSize.y-1) / 2f;
+
     public void PositionFloating(Vector3 point) {
         transform.position = point;
     }
@@ -86,10 +91,17 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
 
 
     public void Update() {
+        if (rectangleGizmo != null) {
+            rectangleGizmo.gameObject.SetActive(IsBeingGrabbed);
+            rectangleGizmo.transform.localPosition = PivotOffset;
+            rectangleGizmo.Width = gridSize.x;
+            rectangleGizmo.Height = gridSize.y;
+        }
         if (spriteRenderer != null) {
             spriteRenderer.color = spriteRenderer.color.WithAlfa(IsBeingGrabbed ? ghostAlpha : 1f);
         }
         tiles.ForEach(r => r.Alpha = IsBeingGrabbed ? ghostAlpha : 1f);
         tiles.ForEach(r => r.Detectable = !IsBeingGrabbed);
     }
+
 }
