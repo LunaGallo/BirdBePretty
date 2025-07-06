@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2944150195853475488}
   - component: {fileID: 5358667053555865644}
   m_Layer: 0
-  m_Name: Tree 1
+  m_Name: Taboa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7731271368024321617}
-  - {fileID: 6425886143927755540}
+  - {fileID: 4715235041520633274}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5358667053555865644
@@ -52,10 +52,10 @@ MonoBehaviour:
   spriteRenderer: {fileID: 2465398562750249147}
   tiles: []
   ghostAlpha: 0.5
-  data: {fileID: 11400000, guid: 31a67915adeaa9241b80b583f5616d89, type: 2}
+  data: {fileID: 11400000, guid: 62da33c5899dca6499b61b29e15ea33c, type: 2}
   compatibleTerrains:
   - Dirt
-  rectangleGizmo: {fileID: 3541059918962623775}
+  rectangleGizmo: {fileID: 2983330272088482737}
 --- !u!1 &793169708164828939
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,9 +129,9 @@ Transform:
   m_GameObject: {fileID: 6967787206470999223}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.225, z: -0.325}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7731271368024321617}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4b05a7ab0580ed145be56342a8ed8eca, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4905038127c7e9b4e9307c8c0a24b960, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -190,7 +190,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1001 &2768138340971429871
+--- !u!1001 &4479061864945899841
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -247,10 +247,10 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b1fe6263f7a8b840808424c54d731f7, type: 3}
---- !u!114 &3541059918962623775 stripped
+--- !u!114 &2983330272088482737 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1679341401828604656, guid: 6b1fe6263f7a8b840808424c54d731f7, type: 3}
-  m_PrefabInstance: {fileID: 2768138340971429871}
+  m_PrefabInstance: {fileID: 4479061864945899841}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -258,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08f210828086c1a4398856e1ba65627c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &6425886143927755540 stripped
+--- !u!4 &4715235041520633274 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9171354422147980539, guid: 6b1fe6263f7a8b840808424c54d731f7, type: 3}
-  m_PrefabInstance: {fileID: 2768138340971429871}
+  m_PrefabInstance: {fileID: 4479061864945899841}
   m_PrefabAsset: {fileID: 0}

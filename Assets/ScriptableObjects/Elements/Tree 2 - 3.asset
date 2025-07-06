@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e3fe5dfec499a4ab3a00bfb7bafb39, type: 3}
-  m_Name: Water
+  m_Name: Tree 2 - 3
   m_EditorClassIdentifier: 
-  displayName: Lago
-  sprite: {fileID: 21300000, guid: c67f08eb43b46e84dbbe7a3047c3b7df, type: 3}
-  tag: 0
-  prefab: {fileID: 2120171654777494384, guid: fd288f1eee966544eb168357316ca4e5, type: 3}
+  displayName: "\xC1rvore"
+  sprite: {fileID: 21300000, guid: 5cdc8edf972cb9d419ee03fde04908e4, type: 3}
+  tag: 2
+  prefab: {fileID: 5358667053555865644, guid: 4e307e41b9cd9b04289a69de29b7c8f2, type: 3}

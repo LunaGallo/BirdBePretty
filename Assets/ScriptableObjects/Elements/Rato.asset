@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 19e3fe5dfec499a4ab3a00bfb7bafb39, type: 3}
-  m_Name: Tree 1
+  m_Name: Rato
   m_EditorClassIdentifier: 
-  displayName: "\xC1rvore"
-  sprite: {fileID: 21300000, guid: 4b05a7ab0580ed145be56342a8ed8eca, type: 3}
+  displayName: Rato
+  sprite: {fileID: 21300000, guid: 6f7d3c8d26af5104b84dc7a73454b1d7, type: 3}
   tag: 1
   prefab: {fileID: 5358667053555865644, guid: 440f587be0db606439c1bff714df88d6, type: 3}
