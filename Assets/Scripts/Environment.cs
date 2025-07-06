@@ -5,8 +5,11 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 using System;
+using UnityEngine.Rendering;
 
 public class Environment : MonoBehaviour {
+
+    public static Environment Current => GameController.Instance.CurrentEnvironment;
 
     public Transform tileContainer;
     public Transform elementContainer;
@@ -76,6 +79,16 @@ public class Environment : MonoBehaviour {
         IEnumerable<ElementData> elementDatas = childElements.Select(b => b.data).WithoutDoubles();
         HappynessCount = Mathf.Max(0,elementDatas.Where(d => likes.Any(l => l.tag == d.tag)).Select(d => likes.Find(l => l.tag == d.tag)).Sum(l => l.intensity));
         UpdateUIValues();
+
+        List<GroundTile> defaultTiles = new(tileContainer.GetComponentsInChildren<GroundTile>(true));
+        List<GroundTile> elementTiles = new(elementContainer.GetComponentsInChildren<GroundTile>());
+        foreach(GroundTile tile in defaultTiles) {
+            tile.gameObject.SetActive(elementTiles.All(e => e.TilePos != tile.TilePos));
+        }
+    }
+
+    public bool IsTileWithinLimits(Vector3 tilePos) {
+        return tileContainer.GetComponentsInChildren<GroundTile>(true).Any(t => t.TilePos == tilePos);
     }
 
 }

@@ -1,5 +1,6 @@
 using LunaLib;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -9,8 +10,12 @@ public class GroundTile : SingletonGroup<GroundTile> {
 
     public GameObject grassSprite;
     public bool ShowingGrassSprite {
-        get => grassSprite.activeSelf;
-        set => grassSprite.SetActive(value);
+        get => grassSprite != null && grassSprite.activeSelf;
+        set {
+            if (grassSprite != null) {
+                grassSprite.SetActive(value);
+            }
+        }
     }
 
     public GameObject gridRect;
@@ -25,6 +30,11 @@ public class GroundTile : SingletonGroup<GroundTile> {
     public bool ShowingGridRect {
         get => gridRect.activeSelf;
         set => gridRect.SetActive(value); 
+    }
+
+    public List<RendererMaterialExposer> renderers;
+    public float Alpha { 
+        set => renderers.ForEach(r => r.MaterialReference.color = r.MaterialReference.color.WithAlfa(value));
     }
 
     protected override void OnEnable() {

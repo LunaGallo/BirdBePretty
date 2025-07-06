@@ -1,23 +1,39 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Shapes;
 using LunaLib;
 
 public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
 
+    public enum Type {
+        Object,
+        TileGroup
+    }
+    public Type type;
     public Vector2Int gridSize = Vector2Int.one;
-    public Rectangle rectagleGizmo;
     public SpriteRenderer spriteRenderer;
+    public List<GroundTile> tiles;
     public float ghostAlpha = 0.5f;
     public ElementData data;
-    public Animator feedbackAnimator;
-    public string errorFeedbackAnimatorTrigger;
 
-    public bool IsFlipped { 
-        get => spriteRenderer.flipX; 
-        set => spriteRenderer.flipX = value; 
+    public bool IsFlipped {
+        get {
+            if (spriteRenderer != null) {
+                return spriteRenderer.flipX;
+            }
+            return transform.localRotation.eulerAngles.y != 0;
+        }
+        set {
+            if (spriteRenderer != null) {
+                spriteRenderer.flipX = value;
+            }
+            else {
+                transform.localRotation = Quaternion.Euler(
+                    transform.localRotation.x, 
+                    IsFlipped ? 0f : 90f, 
+                    transform.localRotation.z);
+            }
+        }
     }
     public void ToggleFlipped() => IsFlipped = !IsFlipped;
 
@@ -26,7 +42,7 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
 
     public bool OccupiesTile(Vector3 tilePos) {
         Vector3 localPos = transform.InverseTransformPoint(tilePos);
-        return localPos.x < gridSize.x && localPos.x >= 0f && localPos.z < gridSize.y && localPos.z >= 0f;
+        return type == Type.Object && localPos.x < gridSize.x && localPos.x >= 0f && localPos.z < gridSize.y && localPos.z >= 0f;
     }
     public static bool IsTileOcupied(Vector3 tilePos) => AllFixed.Any(i => i.OccupiesTile(tilePos));
     public static ElementBehaviour FindOnTile(GroundTile tile) => AllFixed.Find(i => i.OccupiesTile(tile.TilePos));
@@ -38,18 +54,19 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
                     yield return transform.position + transform.right * i + transform.forward * j;
                 }
             }
+            foreach (GroundTile tile in tiles) {
+                yield return tile.TilePos;
+            }
         }
     }
-    public bool FitsThere() => TilesWithin.All(t => GroundTile.AnyAt(t) && !IsTileOcupied(t));
+    public bool FitsThere() {
+        return TilesWithin.All(t => Environment.Current.IsTileWithinLimits(t) && !IsTileOcupied(t));
+    }
 
     public void Update() {
-        spriteRenderer.color = spriteRenderer.color.WithAlfa(IsBeingGrabbed ? ghostAlpha : 1f);
-    }
-
-    public void ShowErrorFeedback() {
-        if (feedbackAnimator) {
-            feedbackAnimator.SetTrigger(errorFeedbackAnimatorTrigger);
+        if (spriteRenderer != null) {
+            spriteRenderer.color = spriteRenderer.color.WithAlfa(IsBeingGrabbed ? ghostAlpha : 1f);
         }
+        tiles.ForEach(r => r.Alpha = IsBeingGrabbed ? ghostAlpha : 1f);
     }
-
 }

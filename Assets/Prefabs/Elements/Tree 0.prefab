@@ -46,13 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1256eb0ddf243364d9e01e6dcf61e5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   gridSize: {x: 1, y: 1}
-  rectagleGizmo: {fileID: 3541059918962623775}
   spriteRenderer: {fileID: 2465398562750249147}
+  tiles: []
   ghostAlpha: 0.5
   data: {fileID: 11400000, guid: 62da33c5899dca6499b61b29e15ea33c, type: 2}
-  feedbackAnimator: {fileID: 0}
-  errorFeedbackAnimatorTrigger: 
 --- !u!1 &793169708164828939
 GameObject:
   m_ObjectHideFlags: 0

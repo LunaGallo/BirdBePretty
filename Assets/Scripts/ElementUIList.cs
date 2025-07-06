@@ -15,6 +15,7 @@ public class ElementUIList : MonoBehaviour {
         foreach (ElementData data in elementDataLibrary.elements) {
             elementUIPool.GetInstance().Configure(data);
         }
+        elementUIPool.container.ShuffleChildrenOrder();
     }
 
 }
