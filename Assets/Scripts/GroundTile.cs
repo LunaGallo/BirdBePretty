@@ -1,16 +1,27 @@
+using LunaLib;
+using System.Linq;
 using UnityEngine;
 
-public class GroundTile : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+public class GroundTile : SingletonGroup<GroundTile> {
+
+    public GameObject gridRect;
+
+    private static bool showingGrid = true;
+    public static bool ShowingGrid {
+        get => showingGrid;
+        set {
+            showingGrid = value;
+            InstanceList.ForEach(i => i.ShowingGridRect = value);
+        }
+    }
+    public bool ShowingGridRect {
+        get => gridRect.activeSelf;
+        set => gridRect.SetActive(value); 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    protected override void OnEnable() {
+        base.OnEnable();
+        ShowingGridRect = ShowingGrid;
     }
+
 }
