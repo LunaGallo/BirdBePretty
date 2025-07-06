@@ -4,9 +4,6 @@ using TMPro;
 
 public class ElementUI : MonoBehaviour {
 
-    public static ElementUI selected = null;
-
-    public GameObject selectionIndicator;
     public Image image;
     public TMP_Text text;
 
@@ -17,12 +14,8 @@ public class ElementUI : MonoBehaviour {
         text.text = data.displayName;
     }
 
-    public void Update() {
-        selectionIndicator.SetActive(selected == this);
-    }
-
     public void ButtonClicked() {
-        selected = selected == null ? this : null;
+        GameController.Instance.CreateElementAndGrab(data);
     }
 
 }
