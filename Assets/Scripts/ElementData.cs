@@ -6,9 +6,8 @@ using UnityEngine;
 public class ElementData : ScriptableObject {
 
     public string displayName;
-    public string displayDescription;
     public Sprite sprite;
-    public List<string> tags;
+    public string tag;
     public ElementBehaviour prefab;
 
 }
