@@ -77,7 +77,14 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
         }
     }
 
-    public Vector3 PivotOffset => Vector3.right * (gridSize.x-1) / 2f + Vector3.forward * (gridSize.y-1) / 2f;
+    public Vector3 PivotOffset {
+        get {
+            if (type == Type.Object) {
+                return Vector3.right * (gridSize.x - 1) / 2f + Vector3.forward * (gridSize.y - 1) / 2f;
+            }
+            return Vector3.zero;
+        }
+    }
 
     public void PositionFloating(Vector3 point) {
         transform.position = point;

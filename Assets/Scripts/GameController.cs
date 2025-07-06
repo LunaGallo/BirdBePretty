@@ -1,6 +1,7 @@
 using LunaLib;
 using System.Collections.Generic;
 using UnityEngine;
+using static LunaLib.CollectionExtension;
 
 public class GameController : Singleton<GameController> {
 
@@ -27,22 +28,26 @@ public class GameController : Singleton<GameController> {
             hitPoint -= GrabbedElement.PivotOffset;
         }
         hitPoint = hitPoint.Rounded();
-        GroundTile hitTile = GroundTile.TileAt(hitPoint);
+        GroundTile defaultHitTile = CurrentEnvironment.DefaultTileAt(hitPoint);
+        GroundTile totalHitTile = GroundTile.TileAt(hitPoint);
         if (!IsMouseOverUI) {
-            if (hitTile != null) {
+            if (Input.GetMouseButtonDown(0) && totalHitTile != null && !IsGrabbing) {
+                ElementBehaviour hitElement = totalHitTile.GetComponentInParent<ElementBehaviour>();
+                if (hitElement != null) {
+                    GrabElement(hitElement);
+                }
+            }
+            if (defaultHitTile != null) {
                 isHoveringTile = true;
                 if (IsGrabbing) {
-                    GrabbedElement.PositionOverTile(hitTile);
+                    GrabbedElement.PositionOverTile(defaultHitTile);
                     if (Input.GetMouseButtonDown(0) && GrabbedElement.FitsThere()) {
                         StopGrabbingElement();
                     }
                 }
                 else {
-                    ElementBehaviour hitElement = ElementBehaviour.FindOnTile(hitTile);
-                    if (hitElement == null) {
-                        hitElement = hitTile.GetComponentInParent<ElementBehaviour>();
-                    }
-                    if (hitElement != null && !IsGrabbing && Input.GetMouseButtonDown(0)) {
+                    ElementBehaviour hitElement = ElementBehaviour.FindOnTile(defaultHitTile);
+                    if (hitElement != null && Input.GetMouseButtonDown(0)) {
                         GrabElement(hitElement);
                     }
                 }

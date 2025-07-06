@@ -92,9 +92,11 @@ public class Environment : MonoBehaviour {
     public bool IsTileWithinLimits(Vector3 tilePos) {
         return tileContainer.GetComponentsInChildren<GroundTile>(true).Any(t => t.TilePos == tilePos);
     }
-
     public int ElementTileCount(Vector3 tilePos) {
         return elementContainer.GetComponentsInChildren<GroundTile>(true).Count(t => t.TilePos == tilePos);
+    }
+    public GroundTile DefaultTileAt(Vector3 tilePos) {
+        return tileContainer.GetComponentsInChildren<GroundTile>(true).Find(t => t.TilePos == tilePos);
     }
 
 }

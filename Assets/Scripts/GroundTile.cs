@@ -61,7 +61,9 @@ public class GroundTile : SingletonGroup<GroundTile> {
 
     public bool randomizeRotationOnStart = true;
     private void Start() {
-        transform.localRotation = Quaternion.AngleAxis(90f * UnityEngine.Random.Range(0,4), Vector3.up);
+        if (randomizeRotationOnStart) {
+            transform.localRotation = Quaternion.AngleAxis(90f * UnityEngine.Random.Range(0, 4), Vector3.up);
+        }
     }
 
 }
