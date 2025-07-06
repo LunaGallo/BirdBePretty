@@ -59,4 +59,9 @@ public class GroundTile : SingletonGroup<GroundTile> {
     public float heightOffset = 0f;
     public string terrainType;
 
+    public bool randomizeRotationOnStart = true;
+    private void Start() {
+        transform.localRotation = Quaternion.AngleAxis(90f * UnityEngine.Random.Range(0,4), Vector3.up);
+    }
+
 }

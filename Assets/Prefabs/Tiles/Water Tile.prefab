@@ -44,6 +44,10 @@ PrefabInstance:
       propertyPath: renderers.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5299405608609788632, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
+      propertyPath: randomizeRotationOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5906900339502204599, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
       propertyPath: m_Enabled
       value: 0

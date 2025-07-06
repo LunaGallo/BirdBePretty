@@ -181,7 +181,7 @@ Transform:
   - {fileID: 6164124230895875233}
   - {fileID: 4936907721675412273}
   - {fileID: 8656699298665015816}
-  - {fileID: 6857197127259045344}
+  - {fileID: 6815845825086863199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5299405608609788632
@@ -205,6 +205,7 @@ MonoBehaviour:
   nonDetectableLayer: Default
   heightOffset: 0
   terrainType: Dirt
+  randomizeRotationOnStart: 1
 --- !u!1 &1955650880025849610
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +349,61 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3586772178189635590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6815845825086863199}
+  - component: {fileID: 5526047454269106973}
+  m_Layer: 0
+  m_Name: Randomizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6815845825086863199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586772178189635590}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 6857197127259045344}
+  m_Father: {fileID: 7642447265437850800}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5526047454269106973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3586772178189635590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451d232465b972b48922705669f3600c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPositionRange:
+    position: {x: -0.3, y: 0, z: -0.3}
+    size: {x: 0.6, y: 0, z: 0.6}
+  localRotationRange:
+    position: {x: 0, y: 0, z: 0}
+    size: {x: 0, y: 0, z: 0}
+  localScaleRange:
+    position: {x: 1, y: 1, z: 1}
+    size: {x: 0, y: 0, z: 0}
+  randomizeOnStart: 1
 --- !u!1 &5456129253887605007
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,11 +518,11 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.23644301, y: 0.39287743, z: -0.1052712, w: 0.8824172}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4765902516348860110}
-  m_Father: {fileID: 7642447265437850800}
+  m_Father: {fileID: 6815845825086863199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8451553968475816602
 MonoBehaviour:

@@ -39,6 +39,9 @@ public class GameController : Singleton<GameController> {
                 }
                 else {
                     ElementBehaviour hitElement = ElementBehaviour.FindOnTile(hitTile);
+                    if (hitElement == null) {
+                        hitElement = hitTile.GetComponentInParent<ElementBehaviour>();
+                    }
                     if (hitElement != null && !IsGrabbing && Input.GetMouseButtonDown(0)) {
                         GrabElement(hitElement);
                     }
