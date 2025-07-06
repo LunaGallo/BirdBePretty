@@ -6,6 +6,7 @@ using TMPro;
 using System.Linq;
 using System;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 public class Environment : MonoBehaviour {
 
@@ -77,6 +78,7 @@ public class Environment : MonoBehaviour {
         ElementBehaviour[] childElements = elementContainer.GetComponentsInChildren<ElementBehaviour>().Where(b => !b.IsBeingGrabbed).ToArray();
         ElementCount = Mathf.Clamp(childElements.Length,0,elementCountGoal);
         IEnumerable<ElementData> elementDatas = childElements.Select(b => b.data).WithoutDoubles();
+        int lastHappyness = HappynessCount;
         HappynessCount = Mathf.Clamp(
             elementDatas.Where(d => likes.Any(l => l.tag == d.tag)).Select(d => likes.Find(l => l.tag == d.tag)).Sum(l => l.intensity),
             0, happynessCountGoal);
