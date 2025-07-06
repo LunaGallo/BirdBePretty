@@ -1,13 +1,14 @@
 using LunaLib;
 using System.Collections.Generic;
 using UnityEngine;
-using static LunaLib.CollectionExtension;
 
 public class GameController : Singleton<GameController> {
 
     public List<Environment> environments;
     public Transform cameraPivot;
     public float cameraSensitivity = 1f;
+    public AudioSource takeAudioSource;
+    public AudioSource putAudioSource;
 
     private static Plane groundPlane = new(Vector3.up, 0f);
 
@@ -83,12 +84,19 @@ public class GameController : Singleton<GameController> {
         }
         GrabElement(Instantiate(elementData.prefab, CurrentEnvironment.elementContainer));
     }
-    public void GrabElement(ElementBehaviour elementBehaviour) => GrabbedElement = elementBehaviour;
+    public void GrabElement(ElementBehaviour elementBehaviour) {
+        GrabbedElement = elementBehaviour;
+        takeAudioSource.Play();
+    }
+
     public void DeleteGrabbedElement() {
         Destroy(GrabbedElement.gameObject);
         StopGrabbingElement();
     }
-    public void StopGrabbingElement() => GrabbedElement = null;
+    public void StopGrabbingElement() {
+        GrabbedElement = null;
+        putAudioSource.Play();
+    }
 
     public void GoToNextEnvironment() {
         currentEnvironmentIndex = (currentEnvironmentIndex + 1) % environments.Count;
