@@ -36,6 +36,18 @@ PrefabInstance:
       propertyPath: grassSprite
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5299405608609788632, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
+      propertyPath: terrainType
+      value: Sand
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299405608609788632, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
+      propertyPath: heightOffset
+      value: -0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5906900339502204599, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6857197127259045344, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.8824172

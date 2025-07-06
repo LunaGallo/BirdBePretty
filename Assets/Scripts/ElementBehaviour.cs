@@ -10,11 +10,13 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
         TileGroup
     }
     public Type type;
+    public Transform objectRoot;
     public Vector2Int gridSize = Vector2Int.one;
     public SpriteRenderer spriteRenderer;
     public List<GroundTile> tiles;
     public float ghostAlpha = 0.5f;
     public ElementData data;
+    public List<string> compatibleTerrains;
 
     public bool IsFlipped {
         get {
@@ -60,13 +62,34 @@ public class ElementBehaviour : SingletonGroup<ElementBehaviour> {
         }
     }
     public bool FitsThere() {
-        return TilesWithin.All(t => Environment.Current.IsTileWithinLimits(t) && !IsTileOcupied(t));
+        return TilesWithin.All(t => 
+        Environment.Current.IsTileWithinLimits(t) && 
+        !IsTileOcupied(t) && 
+        Environment.Current.ElementTileCount(t) <= 1 &&
+        compatibleTerrains.Contains(GroundTile.TileAt(t).terrainType));
     }
+
+    public float ObjectRootHeight {
+        set {
+            objectRoot.localPosition = objectRoot.localPosition.WithY(value);
+        }
+    }
+    public void PositionFloating(Vector3 point) {
+        transform.position = point;
+    }
+    public void PositionOverTile(GroundTile tile) {
+        transform.position = tile.TilePos;
+        if (type == Type.Object) {
+            ObjectRootHeight = tile.heightOffset;
+        }
+    }
+
 
     public void Update() {
         if (spriteRenderer != null) {
             spriteRenderer.color = spriteRenderer.color.WithAlfa(IsBeingGrabbed ? ghostAlpha : 1f);
         }
         tiles.ForEach(r => r.Alpha = IsBeingGrabbed ? ghostAlpha : 1f);
+        tiles.ForEach(r => r.Detectable = !IsBeingGrabbed);
     }
 }

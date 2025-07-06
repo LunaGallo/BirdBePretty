@@ -37,15 +37,26 @@ public class GroundTile : SingletonGroup<GroundTile> {
         set => renderers.ForEach(r => r.MaterialReference.color = r.MaterialReference.color.WithAlfa(value));
     }
 
+    public string detectableLayer;
+    public string nonDetectableLayer;
+    public bool Detectable { 
+        set => gameObject.layer = value ? LayerMask.NameToLayer(detectableLayer) : LayerMask.NameToLayer(nonDetectableLayer); 
+    }
+
     protected override void OnEnable() {
         base.OnEnable();
         ShowingGridRect = ShowingGrid;
     }
 
-    public Vector3 TilePos => transform.position;
+    public Vector3 TilePos => transform.position.Rounded();
 
     private void Update() {
         ShowingGrassSprite = !ElementBehaviour.IsTileOcupied(TilePos);
     }
+
+    public static GroundTile TileAt(Vector3 tilePos) => EnabledList.Find(i => i.TilePos == tilePos);
+
+    public float heightOffset = 0f;
+    public string terrainType;
 
 }

@@ -91,4 +91,8 @@ public class Environment : MonoBehaviour {
         return tileContainer.GetComponentsInChildren<GroundTile>(true).Any(t => t.TilePos == tilePos);
     }
 
+    public int ElementTileCount(Vector3 tilePos) {
+        return elementContainer.GetComponentsInChildren<GroundTile>(true).Count(t => t.TilePos == tilePos);
+    }
+
 }

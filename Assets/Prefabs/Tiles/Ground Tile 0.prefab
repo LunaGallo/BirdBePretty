@@ -158,7 +158,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7642447265437850800}
   - component: {fileID: 5299405608609788632}
-  - component: {fileID: 5906900339502204599}
   m_Layer: 0
   m_Name: Ground Tile 0
   m_TagString: Untagged
@@ -202,27 +201,10 @@ MonoBehaviour:
   renderers:
   - {fileID: 4815343607447252321}
   - {fileID: 2199086401390922356}
---- !u!65 &5906900339502204599
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934385814426371741}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 0.5, z: 1}
-  m_Center: {x: 0, y: -0.25, z: 0}
+  detectableLayer: Default
+  nonDetectableLayer: Default
+  heightOffset: 0
+  terrainType: Dirt
 --- !u!1 &1955650880025849610
 GameObject:
   m_ObjectHideFlags: 0

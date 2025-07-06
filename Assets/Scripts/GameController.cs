@@ -5,8 +5,6 @@ using UnityEngine;
 public class GameController : Singleton<GameController> {
 
     public List<Environment> environments;
-    public float inputRaycastMaxDist = 20f;
-    public LayerMask inputRaycastLayerMask;
     public Transform cameraPivot;
     public float cameraSensitivity = 1f;
 
@@ -23,23 +21,22 @@ public class GameController : Singleton<GameController> {
     private void Update() {
         bool isHoveringTile = false;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        groundPlane.Raycast(ray, out float enter);
+        Vector3 hitPoint = (ray.origin + ray.direction * enter).Rounded();
+        GroundTile hitTile = GroundTile.TileAt(hitPoint);
         if (!IsMouseOverUI) {
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, inputRaycastMaxDist, inputRaycastLayerMask)) {
-                if (hitInfo.collider.TryGetComponent<GroundTile>(out var hitTile)) {
-                    isHoveringTile = true;
-                    if (IsGrabbing) {
-                        GrabbedElement.transform.position = hitTile.transform.position;
-                        if (Input.GetMouseButtonDown(0)) {
-                            if (GrabbedElement.FitsThere()) {
-                                StopGrabbingElement();
-                            }
-                        }
+            if (hitTile != null) {
+                isHoveringTile = true;
+                if (IsGrabbing) {
+                    GrabbedElement.PositionOverTile(hitTile);
+                    if (Input.GetMouseButtonDown(0) && GrabbedElement.FitsThere()) {
+                        StopGrabbingElement();
                     }
-                    else {
-                        ElementBehaviour hitElement = ElementBehaviour.FindOnTile(hitTile);
-                        if (hitElement != null && !IsGrabbing && Input.GetMouseButtonDown(0)) {
-                            GrabElement(hitElement);
-                        }
+                }
+                else {
+                    ElementBehaviour hitElement = ElementBehaviour.FindOnTile(hitTile);
+                    if (hitElement != null && !IsGrabbing && Input.GetMouseButtonDown(0)) {
+                        GrabElement(hitElement);
                     }
                 }
             }
@@ -51,9 +48,7 @@ public class GameController : Singleton<GameController> {
             }
         }
         if (!isHoveringTile && IsGrabbing) {
-            if (groundPlane.Raycast(ray, out float enter)) {
-                GrabbedElement.transform.position = ray.origin + ray.direction * enter;
-            }
+            GrabbedElement.PositionFloating(hitPoint);
             if (Input.GetMouseButtonDown(0)) {
                 DeleteGrabbedElement();
             }

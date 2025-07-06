@@ -33,16 +33,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5299405608609788632, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
+      propertyPath: terrainType
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299405608609788632, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
+      propertyPath: heightOffset
+      value: -0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299405608609788632, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
       propertyPath: renderers.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5906900339502204599, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
-      propertyPath: m_Size.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5906900339502204599, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
-      propertyPath: m_Center.y
-      value: -0.375
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6164124230895875233, guid: c62507234f1d45a418b57dadc8aad7bd, type: 3}
       propertyPath: m_LocalPosition.y

@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  objectRoot: {fileID: 0}
   gridSize: {x: 7, y: 7}
   spriteRenderer: {fileID: 0}
   tiles:
@@ -78,6 +79,10 @@ MonoBehaviour:
   - {fileID: 1942854662315937920}
   ghostAlpha: 0.5
   data: {fileID: 11400000, guid: 93d4ed589f7d42643bc2f65ee3067f04, type: 2}
+  compatibleTerrains:
+  - Dirt
+  - Sand
+  - Water
 --- !u!1001 &469420879441782432
 PrefabInstance:
   m_ObjectHideFlags: 0

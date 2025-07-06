@@ -47,11 +47,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  objectRoot: {fileID: 7731271368024321617}
   gridSize: {x: 1, y: 1}
   spriteRenderer: {fileID: 2465398562750249147}
   tiles: []
   ghostAlpha: 0.5
   data: {fileID: 11400000, guid: 31a67915adeaa9241b80b583f5616d89, type: 2}
+  compatibleTerrains:
+  - Dirt
 --- !u!1 &793169708164828939
 GameObject:
   m_ObjectHideFlags: 0
